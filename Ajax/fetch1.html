@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        const url = 'dados/estados.json'
+        fetch(url)
+            .then(resp => resp.json())
+            .then(estados => {
+                const itens = estados.reduce( (html, estado) => html + `<li>${estado.nome}</li>`, '')
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`)
+            })
+
+        
+        // function ajax(configs) {
+        //     const xml = new XMLHttpRequest()
+            
+        //     xml.open(configs.method, configs.url, true)
+        //     xml.onreadystatechange = e => {
+        //         if (xml.readyState === 4) {
+        //             if (xml.status === 200) {
+        //                 configs.sucess(JSON.parse(xml.responseText))
+        //             }
+        //         } else {
+        //             configs.error( {
+        //                 codigo: xml.status,
+        //                 texto: xml.statusText
+        //             })
+        //         }
+        //     }
+
+        //     xml.send()
+        // }
+
+        // ajax( {
+        //     method: "get",
+        //     url: "dados/estados.json",
+        //     sucess (estados) {
+        //         document.createElement('ul')
+        //         const body = document.querySelector('body')
+        //         const ul = document.querySelector('ul')
+
+        //         body.appendChild(ul)
+        //         estados.forEach(item => {
+        //             let estado = `<li>${item.nome}</li>`
+        //             ul.appendChild(estado)
+        //         }) 
+        //     },
+        //     error (erros) {
+        //         const msg = document.createTextNode( `${erros.codigo}: ${erros.texto}`)
+        //         document.body.appendChild(msg)
+        //     }
+        // })
+    </script>
+</body>

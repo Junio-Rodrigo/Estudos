@@ -1,0 +1,154 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    align-items: center;
+    margin: 0;
+    height: 98vh;
+}
+
+h1 {
+    border-radius: 20px;
+    background-color: #70f;
+    padding: 10px 40px;
+    font-size: 50px;
+    color: #fff;
+    cursor: default;
+}
+
+.toDoList {
+    background-color: #202020;
+    height: 80%;
+    width: 50%;
+    border-radius: 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.configs {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add {
+    position: absolute;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 2px 10px;
+    border: solid 1px #fff;
+    color: #fff;
+    background-color: #202020;
+}
+
+.add:hover {
+    background-color: #666;
+    color: #eee;
+    font-size: 20px;
+    transition: .25s;
+}
+.add:active {
+    border: solid 1px #000;
+    color: #000;
+    background-color: #ddd;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    height: 25%;
+}
+
+.toDo {
+    margin: 0 40px;
+    border: solid 3px #fff;
+    border-radius: 20px;
+    color: #fff;
+    font-family: monospace;
+    font-size: 15px;
+    padding: 10px;
+    
+}
+
+.delete {
+    border: solid 1px #ddd;
+    background-color: #202020;
+    color: #fff;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+
+
+.delete:hover {
+    transition: .25s;
+    background-color: #666;
+}
+
+.delete:active {
+    transition: none;
+    border: solid 1px #000;
+    color: #000;
+    background-color: #fff;
+}
+
+.check {
+    margin: 0 15px 0 30px;
+    border: none; 
+}
+
+p {
+    margin: 0;
+    display: flex;
+    justify-content: baseline;
+}
+
+.settingList {
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+}
+
+.create {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    background-color: #70f;
+    height: 40%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.create > input[type=text] {
+    margin: 30px 0 40px 0 ;
+    border-radius: 5px;
+    border: solid 1px #000;
+}
+
+.date {
+    margin-bottom: 40px;
+}
+
+.date > input {
+    border-radius: 5px;
+    width: 15px;
+    border: solid 1px #000;
+}
+
+.create > button {
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    padding: 0 20px;
+    font-size: 20px;
+}
+
+.create > button {
+    
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador do Junio</title>
+</head>
+    <h1>Contador</h1>
+<body>
+    <!-- contador -->
+    <div id="contador">
+        0  :  0
+    </div>
+
+    <button id="iniciar">iniciar</button>
+    <button id="parar">Parar</button>
+    <button id="resetar">Resetar</button>
+</body>
+<style>
+    button{
+        position: relative;
+        top: 80px;
+        margin-left: 20px;
+        font-size: 20px;
+        background-color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover{
+        border-bottom: solid 3px #000;
+    }
+    h1 {
+        width: 14%;
+        text-align: center;
+        font-size: 40px;
+        background-color: #000;
+        border-radius: 20px;
+        color: #fff;
+    }
+    #contador {
+        position: absolute;
+        font-size: 80px;
+        top: 60px;
+        left: 5px;
+        border-bottom: solid 5px #000;
+        padding: 0px 80px;
+    }
+
+</style>
+
+<script>
+        const iniciar = document.getElementById("iniciar")
+        const parar = document.getElementById("parar")
+        const contador = document.getElementById("contador")
+        const resetar = document.getElementById("resetar")
+
+        let m = 0
+        let s = 0
+        let intervalId;
+        let continuar = false
+        iniciar.onclick = e => {
+            if (continuar) return
+            continuar = true
+            clearInterval(intervalId)
+            intervalId = setInterval( () => {
+                if (s == 60) {
+                    s = 0
+                    m++
+                }
+                if (continuar) s++
+                contador.innerHTML = `${m}  :  ${s}`
+            }, 1000)
+        }
+
+        parar.onclick = e => {
+            continuar = false
+            clearInterval(intervalId)
+        }
+
+        resetar.onclick = e => {
+            m = 0
+            s = 0
+            contador.innerHTML = `${m}  :  ${s}`
+        }
+</script>
+</html>

@@ -1,0 +1,137 @@
+<h1>Imagens</h1>
+
+<div slider>
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da Cidade" 
+        width="513" height="342" 
+        title="Muro da Cidade por Tarso Bessa">
+    </p>
+    
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="Intro da Cod3r"
+        height="342"
+        title="Cod3r">
+    </p>
+    
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de janeiro"
+        height="342"
+        title="Rio de Janeiro">
+    </p>
+    
+    <p class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" 
+        alt="Avatar" 
+        height="50"
+        align="left">
+        esreere egege ege egegegeg e gege ge egge eg eg eg e e geg e e egge eg
+        gege geg eg eg e gegegege ge e gegegegege egegeg gegege gegegeg g  g ege 
+        ege  gegeege eg gegege  gegegegege gegege egegeg  gegegegegeg egege
+        efefefefe ef efefefefefe fefef fefefef fwf wfw efefefgwgege gege e gegge
+    </p>
+    
+    <p class="cidade">
+    
+    </p>
+    <p>
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+            media="(min-width: 600px)">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+        </picture>
+    </p>
+</div>
+<nav>
+    <a href="/HTML/exerciciosHtml/imagens.html">Funcional</a>
+</nav>
+
+<style>
+    .texto {
+        width: 500px;
+    }
+
+    .texto img {
+        margin-right: 10px;
+    }
+
+    .circular {
+        width: 513px;
+        background-color: #444;
+    }
+
+    p {
+        position: absolute;
+        display: none;
+    }
+
+    .cidade {
+        width: 513px;
+        height: 342px;
+        background-image: url("http://files.cod3r.com.br/curso-web/imagem4.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    } 
+</style>
+
+<script>
+    // let para = document.querySelectorAll('p')
+    // let pic = document.querySelectorAll('picture')
+    // const IMGs = [...pic, ...para]
+
+    // let active = 0
+    // IMGs[0].style.display = 'block'
+    // setInterval( () => {
+    //     IMGs[active].style.display = 'none'
+    //     active++
+    //     if (active == IMGs.length) {
+    //         active = 0
+    //     }
+    //     IMGs[active].style.display = 'block'
+    // }, 2000)
+
+    function mover(elem, inicio, fim, passo, callback) {
+        inicio -= passo
+        if (inicio >= fim) { 
+            elem.style.left = `${inicio}px`
+            setTimeout( () => {
+                mover(elem, inicio, fim, passo, callback)
+            }, 7)
+        }
+        else {
+            callback()
+        }
+    }
+       
+    // const p = document.querySelector('[slider] > p')
+    // p.style.display = 'block'
+    // mover(p, 1500, -520, 5, () => {
+    //     p.style.display = 'none'
+    // })
+
+    function slider() {
+        const elementos = document.querySelectorAll('[slider] > p')
+        const slides = Array.from(elementos)
+        exibirSlides(slides, slides[0])
+    }
+    function exibirSlides(slides, slide) {
+        slide.style.display = 'block'
+
+        const inicio = innerWidth
+        const fim = -slide.clientWidth
+
+        slide.style.left = `${inicio}px`
+
+        mover(slide, inicio, fim, 5, () => {
+            slide.style.display = 'none'
+            exibirSlides(slides, getProximo(slides, slide))
+        })
+    }
+    function getProximo(slides, slide) {
+        const atual = slides.indexOf(slide)
+        const proximo = atual + 1
+        return proximo >= slides.length ? slides[0] : slides[proximo]
+    }
+
+    slider()
+</script>

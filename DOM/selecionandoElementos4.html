@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul>
+            <li>Pedro</li>
+            <li>Ana</li>
+            <li>Bia</li>
+        </ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+        function log() {
+            console.log(this)
+        }
+        HTMLAllCollection.prototype.log = log
+        HTMLAnchorElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        const lista = document.querySelector('div ul')
+        lista.parentNode.log() // parentNode faz conseguir acessar o pai da ul (div)
+        lista.childNodes.log() // childNodes faz conseguir acessar todos os filhos do pai (li), mas vem com alguns textos atrapalhando para corrigir isso basta usar children ao invés de childNodes.
+
+        const primeiro = lista.firstChild
+        primeiro.log()
+        primeiro.nextSibling.log() // nextSibling faz acessaro próximo elemento filho
+
+        const ultimo = lista.lastChild
+        ultimo.log()
+        ultimo.previousSibling.log()
+
+        lista.children.log() 
+        lista.firstElementChild.log()
+        lista.lastElementChild.log()
+        lista.parentNode.previousElementSibling.log()
+        lista.parentNode.nextElementSibling.log()
+
+    </script>
+</body>
+
+</html>

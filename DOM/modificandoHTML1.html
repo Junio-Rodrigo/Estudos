@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body')
+
+        const div1 = document.createElement('div')
+        div1.classList.add('destaque')
+        div1.innerHTML = 'Primeiro'
+        
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-atributo', 'junio')
+        div2.innerHTML = 'Segundo'
+
+        const p = document.createElement('p')
+        p.innerHTML = 'Terceiro'
+        const div3 = document.createElement('div')
+        div3.appendChild(p) // !!! Adiciona um filho para a tag pai.
+
+        body.appendChild(div1)
+        body.appendChild(div2)
+        body.appendChild(div3)
+        
+        const texto = document.createTextNode('Antes...')
+        div3.insertBefore(texto, div3.children[0]) // !!! Adiciona um elemento filho antes do outro 
+        // filho mais velho que foi colocado no segundo parâmetro.
+ 
+        const div4 = div3.cloneNode(true) // !!! Faz a clonagem de um elemento.
+        body.appendChild(div4)
+        body.removeChild(div3) // !!! Remove um filho do pai na qual foi colocado no parâmetro.
+
+    </script>
+</body>
+
+</html>

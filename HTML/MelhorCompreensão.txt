@@ -1,0 +1,17 @@
+HTML(Hyper Text Markup Language)
+
+Anatomia documento html 
+
+tag head = Cabeçalho
+tag body = corpo da página
+
+OBS: Prestar atenção na semantica das tags (atenção no propósito das tags)
+
+Uma propriedade muito importante é o id que tem em todas as tags.
+O id tem a ideia de ser o identificador único dentro de uma página.
+
+Atalho na hora de criar tags com ID, class e atributo:
+
+span#Id
+span.classe
+span[atributo]

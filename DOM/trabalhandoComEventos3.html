@@ -1,0 +1,68 @@
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #03</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+        }
+        
+        .esquerda {
+            height: 100vh;
+            width: 50%;
+            background-color: coral;
+        }
+        
+        .direita {
+            height: 100vh;
+            width: 50%;
+            background-color: cornflowerblue;
+        }
+        
+        .item {
+            border: solid 5px black;
+            background-color: darkgrey;
+            color: white;
+            height: 100px;
+            font-size: 40px;
+            margin: 10px;
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="esquerda" wm-dropzone>
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+    <div class="direita" wm-dropzone></div>
+    <script>
+        const items = document.querySelectorAll('[wm-dropzone] .item')
+        items.forEach((item, index) => {
+            item.draggable = true // Permite que eu arraste o elemento, mas não posso muda-lo de lugar.
+            item.id = item.id || `draggable-item-${index}` // recebe um id.
+            item.ondragstart = e => // Ao começar a arrastar o elemento coloque item-id com o valor do id da tag que esta fazendo o evento.
+                e.dataTransfer.setData('item-id', e.target.id)
+        })
+
+        const dropzones = document.querySelectorAll('[wm-dropzone]') // pegando todos os elementos que tenham wm-dropzone como atributo.
+        dropzones.forEach(dropzone => {
+            dropzone.ondragover = e => e.preventDefault() // Quando deixar de segurar o elemento não faça nada.
+            dropzone.ondrop = function(e) { // Quando soltar dentro de um dropzone faça:
+                const id = e.dataTransfer.getData('item-id') // Pegando o id do elemento que foi solto.
+                const item = document.getElementById(id) // Pegando o elemento pelo id.
+                this.appendChild(item) // Adicionando o elemento como filho do dropzone.
+            }
+        })
+    </script>
+</body>
+
+</html>

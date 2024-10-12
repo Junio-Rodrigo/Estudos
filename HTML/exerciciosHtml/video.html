@@ -1,0 +1,108 @@
+<h1>Vídeos</h1>
+
+<video id="meuVideo" width="800" height="450" controls autoplay controlsList="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4">
+    O browser não suporta a tag vídeo.
+</video>
+
+
+<div botoes>
+    <button pularatras="meuVideo"><</button>
+    <button play="meuVideo">Play</button>
+    <button pause="meuVideo">Pause</button>
+    <button pular="meuVideo">></button>
+</div>
+<div processo="meuVideo" class="progresso">
+    <div></div>
+    <span tempo='meuVideo'></span>
+</div>
+<nav>
+    <a href="/HTML/exerciciosHtml/video.html">Funcional</a>
+</nav>
+<style>
+    [botoes] {
+        position: relative;
+        left: 170px;
+        top: 30px;
+}
+
+    button {
+        border: none;
+        background-color: #fff;
+        font-weight: bold;
+        font-size: 40px;
+        margin: 20px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #aaa;
+        border-radius: 20px;
+    }
+
+    .progresso {
+        height: 30px;
+        width: 800px;
+        border: solid 1px #444;
+        margin: 20px;
+        border-radius: 20px;
+    }
+    
+    .progresso div {
+        background-color: #444;
+        border-radius: 20px;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+    [tempo]{
+        position: absolute;
+        top: 537px;
+        left: 510px;
+        font-size: 40px;
+        font-weight: bold;
+        left: 850px;
+        top: 615px;
+    }
+    [tempo]:hover {
+        cursor: none;
+        border-bottom: solid 5px #111;
+    }
+</style>
+
+<script>
+    function configurarVideo(id) {
+
+        const video = document.getElementById(id)
+        const play = document.querySelector(`[play=${id}]`)
+        const pause = document.querySelector(`[pause=${id}]`)
+        const pular = document.querySelector(`[pular=${id}]`)
+        const pularatras = document.querySelector(`[pularatras=${id}]`)
+        const barraRed = document.querySelector(`[processo=${id}] > div`)
+        const tempo = document.querySelector(`[tempo=${id}]`)
+        
+
+        video.oncontextmenu = () => false
+    
+        play.onclick = e => {
+            video.play()
+        }
+        pause.onclick = e => {
+            video.pause()
+        }
+        pular.onclick = e => {
+            video.currentTime += 5
+        }
+        pularatras.onclick = e => {
+            video.currentTime -= 5
+        }
+        setInterval(() => {
+            const progresso = (video.currentTime / video.duration) * 100
+            barraRed.style.width = `${progresso}%`
+            tempo.innerHTML = `${video.currentTime.toFixed(1)}`
+        }, 100)
+    }
+    configurarVideo('meuVideo')
+</script>

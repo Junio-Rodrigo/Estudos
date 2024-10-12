@@ -1,0 +1,153 @@
+TCP - Transmission Control Protocol -> Orientado a conexão e confiável.
+IP - Internet Protocol -> Roteamento entre redes.
+
+Padrão Layers - São camadas e cada camada tem o propósito de executar algo apartir da ultima camada
+EX: 
+Aplicação - Camada 1
+
+Transporte Camada 2
+
+Internet Camada 3
+
+Rede/Física Camada 4
+
+
+Como é a anatomia do IPv4:
+
+Classe A: 
+    192.168.100.230
+
+    O 192 é a Rede e o resto é do host (Computador dentro da rede)
+    Máscara de SubRede - 255.0.0.0 (mesma quantidade de pontos)
+
+
+Classe B: 
+    192.168.100.230
+    192.168 é a rede e o resto é do host 
+    Máscara de SubRede - 255.255.0.0 ou seja até metade do IP os bits são 1
+
+Classe C:
+    192.168.100.230
+
+    192.168.100 é a rede e o resto do host
+    Máscara de SubRede - 255.255.255.0
+
+
+Protocolo HTTP (Hyper Text Trasfer Protocol) - Maioria do trafego na Internet é por causa do protocolo HTTP.
+
+Caracteristicas: 1. No padrão Layers o HTTP esta na camada de aplicação.
+                 2. Ele é Stateless ou seja não tem estado, toda vez que fazemos uma conexão é como se fosse
+                    a primeira vez, ele não armazena informações passadas e muito menos a utiliza.
+                 3. Cliente-Servidor - Uma interação do cliente com o servidor com as requisições e respostas, onde 
+                    as requisições pode ser um url e a resposta pode ser um vídeo, HTML, um JSON, etc...
+                 4. TCP/IP
+                 5. HTML, CSS, JS, Mídias...
+
+Métodos HTTP: 1. GET - O cliente pega as informações do servidor.
+              2. POST - O cliente dá dados ao servidor.
+              3. PUT
+              4. DELETE
+              5. CONNECT
+              6. OPTIONS
+              7. TRACE
+              8. HEAD
+
+Grupo de status de mensagem:  1xx - Informação
+                              2xx - Sucesso
+                              3xx - Redirecionamento
+                              4xx - Erro no cliente
+                              5xx - Erro no servidor
+
+
+Servidor Web e DNS  - O cliente procura pelo site www.cod3r.com.br e o DNS faz o trabalho de procurar o IP do site e
+manda-lo para o Web Server para mandar uma resposta para o cliente que é o site pesquisado pelo cliente.
+ex: O DNS é como uma pessoa lendo uma lista telefónica e achando os IPs e enviando para o Web Server
+
+Virtual Hosting - Um servidor que hospeda multiplas requisições (sites).
+
+Web Stack - Ex de uma Web Stack:
+LAMP - L = Linux - Sistema Operacional
+       A = Apache - Web Server
+       M = mySQL - DB
+       P = PHP - Linguagem
+
+Mainframe - Terminais burros são conectados ao servidor e o servidor fazia tudo.
+
+Client-Server - Os clientes fazia o processamento de varias coisas e era muito difícil fazer atualizações no site para os clientes.
+
+Web-Server-Side - Conteúdo gerado no lado do servidor.
+
+Front-End + Services - O acesso ao servidor é so para obter dados. O servidor tem web services que gera
+JSONs para o cliente e com base nestes dados gera o HTML ou seja o cliente é quem gera o site.
+
+
+Conteúdo estático e dinâmico o que é?
+
+No Server Side -
+
+Estático: É aquilo que é padrão em um site sem conter filtros do próprio usuário ou aquilo que não é possível alterar, por exemplo a tela de login do Facebook.
+Gerado somente com os arquivos do Web server.
+Dinâmico: É aquele tipo de site que é possivel fazer alterações e deixar com os filtros do usuário por isso de chama dinâmico.
+Gerado apartir de um código.
+
+Cada um tem suas vantagens e desvantagens. Atualmente as empresas estão adotando mais o conteúdo estático por conta do maior processamento e menos riscos de segurança.
+
+HTML, CSS e JavaScript:
+HTML - Estrutura da página
+CSS - Estilização da página
+JavaScript - Interação com a página
+
+DNS - Traduzir nomes de domínios para o IP para achar o domínio para o usuário. www.cod3r.com.br -> 54.69.61.89
+
+funcionamento básico do DNS: 1. Usuário informa o endereço no browser
+                             2. Computador envia uma consulta DNS para o servidor local
+                             3. O servidor responde com o endereço IP
+                             4. Computador acessa o servidor apartir do IP obtido
+
+Busca recursiva: A busca recursica funciona da seguinte forma - Quando um DNS não acha o IP do domínio ele simplismente passa para outro DNS e vai seguindo isso até achar.
+
+Busca Interativa: A busca interativa quando o DNS não consegui achar o IP ele retorna um outro DNS que realmente possa atender aquela requisição do usuário.
+
+
+DNS records:
+A - IPv4
+AAAA - IPv6
+MX - Servidor de Email
+NS - Servidor DNS
+CNAME - Canonical name (Apelido)
+
+HTTP Seguro - HTTP + TLS(Transport Layer Segurity Protocol) = SSLv4
+              HTTP + SSL(Secure Sockets Layer Protocol)
+
+Dados Criptografados usando os protocolos TLS(SSLv4) ou SSL
+Protege de interceptações(MITM)
+Criptografa todas as informações: Cookies, URL e headers
+Usa certificados digitais
+
+o que é Web service? 
+R: É um serviço web que faz alguns serviços da web na web - Os dados são transportados em forma textual (JSON, Txt ou Xml).
+
+SOAP(Simple Object Access Protocol) - XML, Burocrático, WSDL e RPC
+REST(Representational State transfer) - JSON, XML, TXT, simples e HTTP
+
+Convenção Restful:
+   URL     Método     Descrição
+/clientes    POST     Novo cliente
+/clientes    GET      Obtém clientes
+/cliente/36  GET      Obtém cliente 36
+/cliente/36  PUT      Atualiza cliente 36
+/clientes/36 DELETE   Exclui cliente 36
+
+Arquiteturas:
+SOA - Tem vários serviços instalados em um ESB(Barramento de serviços) -> lugar para colocar seus serviços.
+Micro service - Tem serviços independentes que sem uma administração deles vai se tornando uma aplicação mais conplexa, porém 
+os micros serviços tem uma maior flexibilidade e escalabilidade.
+
+
+Computação em nuvem:
+Inspirada nas contas de luz e de água qunato mais gasta mais paga.
+
+Nuvem de infraestrutura - Com IaaS(infraestrutura como serviço), você pode alugar recursos como servidores virtuais, armazenamento,
+redes e outros componentes de infraestrutura, pagando apenas pelo que usar.
+
+AWS - O maior provedor de nuvem do mundo! - É uma nuvem de infraestrutura 

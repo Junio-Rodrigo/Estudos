@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        .menu a, aside a {
+            list-style-type: none;
+            font-family: 'Oswald';
+            font-size: 20px;
+            text-decoration: none;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .menu-toggle {
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #fff;
+            background-color: #444;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 20px;
+            display: none;
+        }
+
+        .menu-toggle:hover {
+            border: solid 1px #0af;
+        }
+        .menu-toggle:focus {
+            border: solid 1px #0af;
+        }
+
+        .menu a:focus {
+            background-color: #0af;
+            color: black !important;
+        }
+
+        .menu a:hover {
+            background-color: #0af !important;
+            color: black !important;
+        }
+
+        .botao {
+            font-family: 'Oswald';
+            font-size: 20px;
+            text-decoration: none;
+            color: #fff;
+            padding: 10px;
+        }
+        .destaque {
+            background-color: red;
+            border-radius: 25px;
+            padding: 10px  25px;
+        }
+        .logo {
+            position: absolute;
+            background-color: #222;
+            width: 100%;
+            top: 0;
+            left: 0;
+            border-bottom: solid 5px #0af;
+        }
+        img {
+            width: 300px;
+            padding: 10px;
+        }
+
+        .autenticacao {
+            position: absolute;
+            right: 40px;
+            top: 25px;
+        }
+        .menu li {
+            list-style-type: none;
+            display: inline;
+        }
+
+        .menu {
+            position: absolute;
+            left: 350px;
+            top: 10px;
+        }
+
+        @media (max-width: 1000px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+        @media (max-width: 750px) {
+            .menu {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio" >Início</a>
+                </li>
+                <li>
+                    <a href="#cursos" >Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre" >Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato" >Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login" >Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+        const inicio = document.querySelector('ul > li > a')
+        function verificar() {
+            setInterval(() => {
+                let url = window.location.hash
+                if (url.includes(('#inicio'))) {
+                    inicio.style.backgroundColor = '#0af'
+                    inicio.style.color = 'black'
+                } else {
+                    inicio.style.backgroundColor = '#222'
+                    inicio.style.color = '#fff'
+                }
+            },200)
+        }
+        verificar()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+body {
+    font-family: monospace;
+    height: 98vh;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hashtag {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
+    background-color: #000;
+}
+.game {
+    display: none;
+}
+.hashtag > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    font-size: 80px;
+    width: 200px;
+    height: 200px;
+}
+
+.hashtag > div:hover {
+    background-color: #eee;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    font-size: 90px;
+}
+
+span:nth-child(1), 
+span:nth-child(3) {
+    margin: 0 30px;
+}
+
+.border {
+    border: solid 2px;
+}
+
+/* A partir daqui vai ser o CSS do menu inicial */
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border-radius: 80px;
+    padding: 10px 30px;
+    font-size: 80px;
+    cursor: pointer;
+    color: #fff;
+    background-color: red;
+    border: none;
+    box-shadow: 2px 4px 2px 2px #000;
+}
+
+button:active {
+    background-color: #e00;
+    box-shadow: 0.5px 0.5px 2px 1px #000;
+}

@@ -1,0 +1,64 @@
+<h1>Projeto</h1>
+<ul class="tree">
+    <style>
+        ul {
+            display: none;
+        }
+        .tree{
+            display: block;
+        }
+    </style>
+
+    <style>
+        span{
+            cursor: pointer;
+        }
+    </style>
+    <li>
+        <span junio>Backend</span>
+        <ul>
+            <li >
+                <span junio>app</span>
+                <ul>
+                    <li>Produto.js</li>
+                    <li>Usuario.js</li>
+                    <li>Venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span junio>config</span>
+                <ul>
+                    <li>Banco.js</li>
+                    <li>Rotas.js</li>
+                    <li>Servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span junio>Frontend</span>
+        <ul>
+            <li>
+                <span junio>public</span>
+                <ul>
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<nav>
+    <a href="/HTML/exerciciosHtml/listasAninhadas.html">Funcional</a>
+</nav>
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    document.querySelectorAll('[junio]').forEach( folder => {
+        folder.onclick = e => {
+            const ul = folder.nextElementSibling
+            const d = ul.style.display
+            ul.style.display = d === "none" ? 'block' : 'none' 
+        }
+    })
+</script>

@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Pixel';
+    src: url('./Pixel.ttf') format('truetype');
+    font-weight: normal; 
+    font-style: normal;
+  }
+
+.conteudo {
+    display: flex;
+    height: 98vh;
+    background-color: #00202e;
+    color: #fff;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 30px;
+    height: 5vh;
+    margin: 80px 0 0 0;
+}
+
+[wm-flappy] {
+    display: flex;
+    margin: 0;
+    position: absolute;
+    background-color: #0bf;
+    height: 550px;
+    width: 1000px;
+    align-self: center;
+    border: solid 4px #08f;
+    overflow: hidden;
+}
+
+.points {
+    font-family: 'Pixel';
+    z-index: 1;
+    position: absolute;
+    font-size: 50px;
+    margin: 10px;
+}
+
+.bird {
+    position: absolute;
+    height: 30px;
+    width: 40px;
+    left: 500px;
+    top: 520px;
+}
+
+.tubes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 80px;    
+    position: relative;
+    left: 1160px;
+}
+.tube {
+    box-shadow: 0 0 2px 1px #000;
+    background-color: #0a0;
+    height: 210px;
+    width: 80px;
+}
+.tube2 {
+    box-shadow: 0 0 2px 1px #000;
+    background-color: #0a0;
+    height: 210px;
+    width: 80px;
+}

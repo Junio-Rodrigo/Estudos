@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker</title>
+</head>
+<body>
+    <div monstrar-cliques>
+        <!-- Cliques -->
+    </div>
+    <button botao-do-clique>Clique</button>
+</body>
+</html>
+
+<script>
+    const clique = document.querySelector('button')
+    const monstrar = document.querySelector('div')
+    let click = 0
+    monstrar.innerHTML = `${click} click`
+    clique.onclick = e => {
+        click++
+        monstrar.innerHTML = click == 1 ? `${click} click` : `${click} clicks`   
+    }
+</script>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 98vh;
+    }
+
+    [monstrar-cliques] {
+        font-size: 100px;
+        text-decoration: 5px underline #000;
+    }
+
+    [botao-do-clique]:hover {
+        background-color: #000;
+        border-radius: 20px;
+        color: #fff;
+        cursor: pointer;
+    }
+    [botao-do-clique] {
+        font-size: 60px;
+        background-color: #fff;
+        border: none;  
+    }
+</style>

@@ -1,0 +1,4 @@
+Commits - São como marcos históricos de seu projeto para que você possa voltar para algum save em específico como nos jogos.
+
+branch - São marcos históricos para os marcos históricos principais ( mains ou masters), assim como nas pastas.
+

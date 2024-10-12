@@ -1,0 +1,20 @@
+O que é Ajax: 
+
+Primeiramente Ajax significa Asynchronous JavaScript and XML.
+
+1. Ele serve para poder fazer requisições sem precisar recarregar a página.
+2. Tem o seu funcionamento assíncrono ou síncrono, porém na grande maioria das vezes é assíncrono, Porque sendo assíncrono a página pode
+atualizar tudo em segundo plano sem interfirir na experiência do usuário.
+
+Para que serve XMLHttpRequest?
+
+XMLHttpRequest é um objeto que ajuda a enviar e receber dados do servidor.
+
+Nele há vários métodos que é importante conhecer, como:
+
+.open -> Serve para criar uma nova requisição sintaxe ( XMLHttpRequest.open("get", "./", true ou false, user(optional), password(optional)) )
+.send -> Serve para enviar a requisição e de brinde se for por exemplo uma requisição do tipo "POST" você coloca um formData ou algo para ir no backEnd.
+
+o que é fetch?
+
+->

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>              
+        document.getElementById('primeiro').classList.add('destaque')
+        const divs = document.getElementsByTagName('div')
+        Array.from(divs).forEach( e => e.classList.remove('destaque'))
+        
+        const divsArray = [...divs]
+        divsArray.forEach(e => e.classList.add('destaque'))
+        
+    const ultimosElementos = document.getElementsByClassName('ultimo')
+
+    for (let i = 0; i<ultimosElementos.length; i++) {
+        ultimosElementos[i].classList.remove('destaque')
+    }
+
+    // classList classList.remove classList.add
+    // getElementById() - pega apenas um elemento com o id colocado como parâmetro.
+    // getElementsByClassName() - Pega todos os elementos com a classe colocada como parâmetro.
+    // getElementsByTagName() - Pega todos os elementos com a tag que foi colocada no parâmetro.
+    </script>
+</body>
+</html>

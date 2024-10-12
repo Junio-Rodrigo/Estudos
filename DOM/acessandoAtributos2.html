@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('childNodes', lista.childNodes) // Pega os filhos do elemento lista incluindo textos invisíveis.
+        console.log('destino', lista.destino) // Mostra o valor do atributo destino.
+        console.log('getAtrribute', lista.getAttribute('destino')) // Faz o mesmo, mas com uma sintaxe diferente e mais flexível e recomendada.
+        console.log('hasAtrrbute', lista.hasAttribute('destino')) // Verifica se tem o atributo em um elemento.
+        lista.setAttribute('destino','empresa') // Modifica o valor do atributo destino para empresa.
+        lista.setAttribute('status', 'aberto') // Cria um atributo novo com o valor aberto.
+        lista.removeAttribute('destino') // Exclui o atributo destino.
+        console.log(lista.dataset) // Mostra o valor do atributo que tem o prefixo "data-".
+        lista.dataset.urgencia = 4 // Alterou o valor do atributo data-urgencia.
+        console.log(lista.getAttribute('data-urgencia'))// Pegou o atributo com o prefixo "data-" utilizando uma sintaxe diferente e mais recomendada.
+        
+        const label = document.querySelector('label')
+        console.log(label.htmlFor) // Somente pode pegar o atributo com o nome de "for" pela notação ponto por essa sintaxe: "htmlFor"
+        console.log(label.getAttribute('for')) // // Pegou o atributo utilizando uma sintaxe diferente e mais recomendada, que não é preciso do "htmlFor", pois esta como string.
+        
+    </script>
+</body>
+
+</html>

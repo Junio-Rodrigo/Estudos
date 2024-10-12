@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #04</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <select name="hl">
+                <option value="pt-br">Português (Brasil)</option>
+                <option value="en-us">Inglês (Americano)</option>
+            </select>
+        <button wm-submit>Pesquisar</button>
+    </form>
+    <script>
+        const submit = document.querySelector('[wm-submit]')
+        submit.onclick = function(e) { // Quando submit for clicado faça:
+            e.preventDefault() // Faz o submit deixar de fazer o que ia fazer anteriormente para sobrescrever ele.
+
+            const form = e.target.parentNode // pegando o elemento pai do submit que é o form.
+            const formData = new FormData(form) // Instânciando o form para conseguir pegar os dados do form.
+            formData.append('ajax', true) // Adicionando dados para o form.
+            console.log(formData.get('q')) // Pegando dados do form.
+            console.log(formData.has('hl')) // Vendo se existe dados no form.
+
+            for (dado of formData) { // printando todos os dados do form no console.
+                console.log(dado)
+            }
+        }
+    </script>
+</body>
